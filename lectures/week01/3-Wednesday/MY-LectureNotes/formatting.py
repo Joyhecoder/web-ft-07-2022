@@ -1,6 +1,12 @@
 
 # Create a variable called first_name and set the value to your first name
+<<<<<<< HEAD
 first_name = "Joy"
+=======
+
+first_name = "Veronica"
+
+>>>>>>> 85db7a0fa89b9a23badf29d16d40664739099d09
 # create a variable called last_name and set the value to your last name
 last_name = "He"
 # print your first name console
