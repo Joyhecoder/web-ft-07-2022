@@ -60,9 +60,9 @@ phonebook_dict = {
 # phonebook_dict["Bob"] = "968-345-2345"
 # print(phonebook_dict)
 
-# 2e. Print all the phone entries.
-
-print(phonebook_dict.values())
+#! 2e. Print all the phone entries.
+# for i in phonebook_dict.keys():
+#     print(f'{i} : {phonebook_dict[i]}')
 
 #? 3. Nested dictionaries
 
@@ -84,10 +84,17 @@ ramit = {
     ]
 }
 # 3a. Write a python expression that gets the email address of Ramit.
-# 3b. Write a python expression that gets the first of Ramit's interests.
-# 3c. Write a python expression that gets the email address of Jasmine.
-# 3d. Write a python expression that gets the second of Jan's two interests.
+result = ramit['email']
 
+
+# 3b. Write a python expression that gets the first of Ramit's interests.
+ramit['interests']
+
+# 3c. Write a python expression that gets the email address of Jasmine.
+ramit['friends'][0]['email']
+
+# 3d. Write a python expression that gets the second of Jan's two interests.
+print(ramit['friends'][1]['interests'][1])
 
 #? 4. Letter Summary
 #? Write a letter_histogram function that takes a word as its input,
