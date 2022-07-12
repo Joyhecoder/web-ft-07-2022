@@ -1,15 +1,11 @@
 # 1. Write a function called power which accepts a base and an exponent.
 # The function should return the power of the base to the exponent.
 def power(base, exponent):
-    if exponent > 0:
-        base = int(base) * int(base)
-        
-        exponent -= 1
-        power(base, exponent)
-    elif exponent == 0:
-        base * 1
-        
-    return 
+    
+    if exponent == 0:
+        return 1
+       
+    return base * power(base, exponent -1 )
 
 result = power(3,3)
 print(result)
