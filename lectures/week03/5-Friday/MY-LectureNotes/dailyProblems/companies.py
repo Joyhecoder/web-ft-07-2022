@@ -1,10 +1,9 @@
+import data 
 
-import color_data 
-
-#? Loop through the colors data and display each color on an html page. 
+#? Loop through the colors data and display logo image and company name on an html page. 
 #* to run the file:  python3 colorsProblem.py > index.html
 
-color_data = color_data.colors
+companies = data.data
 
 html = """
 
@@ -21,9 +20,7 @@ html = """
         body{
             margin:0px;
         }
-        div{
-            height: 50px;
-        }
+        
     </style>
 </head>
 <body>
@@ -31,14 +28,21 @@ html = """
 
 #? Write code here
 
+for i in companies:
+    
+    html += f"""
+    
+    """
 
-for i in color_data:
-    html+=f'\t<div style="background-color :{i["hex_value"]};" ></div>\n'
-
-
+    # html += f"""
+    # <div style='logo: {i['logo']}></div>\n"""
+    
+    # html += f"""\t
+    # <div style='name:{i['business_name']}></div>\n"""
+html += """
 </body>
-</html>
+› </html>
 
-"""
+
 
 print(html)
