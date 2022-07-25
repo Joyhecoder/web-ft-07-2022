@@ -39,7 +39,7 @@ for i in companies:
     
     # html += f"""\t
     # <div style='name:{i['business_name']}></div>\n"""
-html += """
+html += f'''<div> <h2> {i["business_name"]}</h2><img src="{i["logo"]}"></div>'''
 </body>
 › </html>
 
