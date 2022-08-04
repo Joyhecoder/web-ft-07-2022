@@ -1,4 +1,4 @@
-# Week 5 - Wednesday
+# Week 5 - Thursday
 
 ## Ajax and RESTful Web APIs
 
