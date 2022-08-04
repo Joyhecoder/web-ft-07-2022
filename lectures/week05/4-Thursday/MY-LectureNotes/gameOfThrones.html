@@ -14,102 +14,86 @@
 
     <script>
         let div = document.querySelector('div')
-        for(i=1;i<44;i++){
-            let fetchURL = `https://www.anapioficeandfire.com/api/characters?page=${i}&pageSize=50`
-            console.log(fetchURl);
-        fetch(fetchURL)
+        
+        fetch('https://www.anapioficeandfire.com/api/characters?page=1&pageSize=50')
         .then(result=>result.json())
         .then(data=>{
             console.log(data);
-        })
-            // data.forEach(obj => {
+            data.forEach(obj => {
                 // console.log(obj);
-                // let name = obj.name
-                // let aliases = obj.aliases
+                let name = obj.name
+                let aliases = obj.aliases
                 // console.log(aliases);
                 
                 //fetch the url link inside each character
-                // let characterUrl = obj.url
+                let characterUrl = obj.url
                 // console.log(characterUrl);
-//                 fetch(characterUrl)
-//                 .then(result1 => result1.json())
-//                 .then(data1=>{
-//                     console.log(data1)
-//                     let houseUrl = data1.allegiances
-//                     console.log(houseUrl);
-//                     // console.log(houseUrl[0]);
-//                     if(houseUrl.length===0){
+                fetch(characterUrl)
+                .then(result1 => result1.json())
+                .then(data1=>{
+                    console.log(data1)
+                    let houseUrl = data1.allegiances
+                    console.log(houseUrl);
+                    // console.log(houseUrl[0]);
+                    if(houseUrl.length===0){
 
-//                         div.innerHTML += `
+                        div.innerHTML += `
+<div class="card" style="width: 18rem;">
+<div class="card-body">
+<h5 class="card-title">Character Name: ${name}</h5>
+<p class="card-text">Aliase: ${aliases}</p>
+<div class="accordion" id="accordionExample">
+<div class="accordion-item">
+<h2 class="accordion-header" id="headingOne">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+ No house for this character
+</button>
+</h2>
+</div>
+</div>
+</div>
+</div>`
 
-// <div class="card" style="width: 18rem;">
+                    }else{
+                // })
+                fetch(houseUrl[0])
+                .then(result2=>result2.json())
+                .then(data2=>{
+                    let houseName = data2.name
+                    let houseRegion = data2.region
+                    console.log(houseName);
+                    console.log(houseRegion);
 
-// <div class="card-body">
-// <h5 class="card-title">Character Name: ${name}</h5>
-// <p class="card-text">Aliase: ${aliases}</p>
+                div.innerHTML += `
+<div class="card" style="width: 18rem;">
+<div class="card-body">
+<h5 class="card-title">Character Name: ${name}</h5>
+<p class="card-text">Aliase: ${aliases}</p>
+<div class="accordion" id="accordionExample">
+<div class="accordion-item">
+<h2 class="accordion-header" id="headingOne">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+ House Name: ${houseName}
+</button>
+</h2>
+<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+ <strong>House Region:</strong> ${houseRegion}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>`
+                })
 
-
-// <div class="accordion" id="accordionExample">
-// <div class="accordion-item">
-// <h2 class="accordion-header" id="headingOne">
-// <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-//  No house for this character
-// </button>
-// </h2>
-
-// </div>
-// </div>
-// </div>
-
-// </div>`
-
-//                     }else{
-//                 // })
-//                 fetch(houseUrl[0])
-//                 .then(result2=>result2.json())
-//                 .then(data2=>{
-//                     let houseName = data2.name
-//                     let houseRegion = data2.region
-//                     console.log(houseName);
-//                     console.log(houseRegion);
-
-//                 div.innerHTML += `
-
-// <div class="card" style="width: 18rem;">
-
-// <div class="card-body">
-// <h5 class="card-title">Character Name: ${name}</h5>
-// <p class="card-text">Aliase: ${aliases}</p>
-
-
-// <div class="accordion" id="accordionExample">
-// <div class="accordion-item">
-// <h2 class="accordion-header" id="headingOne">
-// <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-//  House Name: ${houseName}
-// </button>
-// </h2>
-// <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-// <div class="accordion-body">
-//  <strong>House Region:</strong> ${houseRegion}
-// </div>
-// </div>
-// </div>
-// </div>
-// </div>
-
-// </div>`
-//                 })
-
-//                     } //end of the else
+                    } //end of the else
            
 
-//                 })  
-//             });
+                })  
+            });
 
-//         })
-
-    }//first for loop ending
+        })
 
       
     </script>
