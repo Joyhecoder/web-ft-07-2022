@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul></ul>
+
+    <script>
+
+        fetch("https://random-data-api.com/api/coffee/random_coffee?size=25")
+        .then(result=>result.json())
+        .then(data=>{
+            let liTags ="";
+            for(i=0; i<data.length; i++){
+                liTags += `<li>${data[i].blend_name}</li>`
+                // console.log((liTags));
+            }
+            let ul = document.querySelector('ul')
+            ul.innerHTML = liTags
+        })
+    </script>
+</body>
+</html>
+

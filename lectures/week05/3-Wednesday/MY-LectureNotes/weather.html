@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    
+    
+    <div>
+        <h1>Weather</h1>
+        <div class="input">
+            <input type="text"><button>Enter</button>
+        </div>
+
+        <div class="report"></div>
+
+    </div>
+
+
+    <script>
+        let button = document.querySelector('button')
+        let input = document.querySelector("input")
+        let cityURL = "";
+        
+        button.addEventListener('click',()=>{
+            let cityName= input.value;
+            
+            //get first word of city with multiple words
+            let firstCityName = cityName.substring(0, cityName.indexOf(' ')); 
+            let secondCityName =cityName.substring(cityName.indexOf(' ') + 1); 
+
+            // console.log(firstCityName);
+            
+            //check the city has multiple words or single word
+            let checkNumberOfWords = cityName.includes(" ")
+            // console.log(checkNumberOfWords);
+
+            //place the city name into the url link
+        
+            if(checkNumberOfWords == true){
+                cityURL = `https://api.openweathermap.org/data/2.5/weather?q=${firstCityName}%20${secondCityName}&appid=e67df4bbb11a8a4f0a25d01f564b8b44`
+
+            }else{
+                cityURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=e67df4bbb11a8a4f0a25d01f564b8b44`
+            }
+            console.log(cityURL);
+
+            fetch(cityURL)
+            .then(result=>result.json())
+            .then(data=>{
+            console.log(data.main.temp)
+
+            let kelvin = data.main.temp
+            //convert to cel
+            let degC = kelvin - 273.15
+
+            //convert cel to far
+            let degF = Math.floor((degC * 1.8) + 32)
+            console.log(degF);
+
+            //grab the div out of the dom
+            let report = document.querySelector(".report")
+             report.innerHTML = `<h2>Current Temp ${degF}º</h2>`
+             // let div = document.querySelector('div')
+            // div.innerHTML = `<h1>Current Temp ${degF}º</h1>`
+
+        })
+
+
+
+        })
+
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        // fetch(cityURL)
+        // .then(result=>result.json())
+        // .then(data=>{
+        //     console.log(data.main.temp)
+
+        //     let kelvin = data.main.temp
+        //     //convert to cel
+        //     let degC = kelvin - 273.15
+
+        //     //convert cel to far
+        //     let degF = Math.floor((degC * 1.8) + 32)
+        //     console.log(degF);
+
+        //     //grab the div out of the dom
+        //     let div = document.querySelector('div')
+        //     div.innerHTML = `<h1>Current Temp ${degF}º</h1>`
+
+        // })
+
+
+    </script>
+</body>
+</html>

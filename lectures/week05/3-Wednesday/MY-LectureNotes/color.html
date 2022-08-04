@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    <div></div>
+
+    <script>
+
+        fetch("https://random-data-api.com/api/color/random_color?size=25")
+        .then(result=>result.json())
+        .then(data=>{
+            let divTags = '';
+            for(i=0; i<data.length; i++){
+                divTags += `<div style="background-color:${data[i].hex_value}; height:200px; width:200px"></div>`
+            }
+            let div = document.querySelector('div')
+            div.innerHTML += divTags
+
+
+        })
+    </script>
+
+
+</body>
+</html>
