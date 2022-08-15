@@ -1,0 +1,87 @@
+// Write a function that prints out the distance of each trip 
+
+let trips = [
+    { distance: 34, time: 10 },
+    { distance: 90, time: 50 },
+    { distance: 59, time: 25 },
+    { distance: 83, time: 60 },
+    { distance: 27, time: 15 },
+    { distance: 68, time: 90 }
+]
+
+function findDistance(arr){
+    let distance= [];
+    //for loop each object in the arr
+    for(let i=0; i < arr.length; i++){
+        distance.push(trips[i].distance)
+    }
+    return distance;
+}
+
+
+
+//a different question
+<div id="submit">Click Me</div>
+
+Write a function changes the value of this div to say "Hello World" 
+
+function changeText(){
+    let submit = document.querySelector("#submit")
+    submit.innerHTML = " ";
+    submit.innerHTML =" Hello World"
+}
+
+
+
+
+//Write a function that console logs the numbers from 1 to n. But for multiples of three print "fizz" instead of the number and for the multiples of five print "buzz". For numbers which are multiples of both three and five print "fizzbuzz".
+
+function fizzBuzz(n){
+    for(let counter=0; counter <= n; counter++){
+        if(n % 15 == 0){
+            console.log("fizzbuzz")
+        }else if(n % 3 == 0){
+            console.log("fizz")
+        }else if(n % 5 ==0){
+            console.log("buzz")
+        }else{
+            console.log(n)
+        }
+    }
+}
+
+
+
+
+
+Given a string, Write a function that returns the character that is most commonly used in the string.
+
+yourFunctionName('abccccddde') ---> c
+yourFunctionName('1111112345') ---->1
+
+function findCommon(str){
+//create an empty obj for storage
+let storage= {}
+for(let i=0; i < str.length; i++){
+  if(str[i] not in storage){
+    //add the key into storage
+    storage.str[i]  = 1;
+
+  }
+  //if the element exists, increase by 1. 
+  else{
+    storage.str[i] += 1;
+  }
+
+}
+// loop through the storage to find the greatest number
+let greatestNum= Object.values(storage[0])
+for(let j=1; j < storage.length; j++){
+   if(Object.values(storage[j])> greatestNum){
+    greatestNum = Object.values(storage[j])
+   }
+}
+
+//return that key
+let commonKey = Object.keys(greatestNum)
+return commonKey
