@@ -42,10 +42,14 @@
 -- SELECT * FROM restaurant ORDER BY distance;
 -- SELECT * FROM restaurant ORDER BY distance LIMIT 2;
 -- SELECT * FROM restaurant ORDER BY stars DESC LIMIT 2;
--- SELECT * FROM restaurant WHERE stars = 5 AND distance < 2 LIMIT 2;
+-- SELECT * FROM restaurant WHERE distance <=2 ORDER BY stars DESC LIMIT 2;
 -- SELECT COUNT(*) FROM restaurant;
 
--- SELECT COUNT(category) FROM restaurant;
--- SELECT COUNT(category), AVG(stars) FROM restaurant;
--- SELECT COUNT(category), MAX(stars) FROM restaurant;
+-- SELECT COUNT(*), category FROM restaurant GROUP BY category;
+-- SELECT COUNT(*), AVG(stars) FROM restaurant GROUP BY category;
+-- SELECT COUNT(*), MAX(stars) FROM restaurant GROUP BY category;
+
+
+
+
 
