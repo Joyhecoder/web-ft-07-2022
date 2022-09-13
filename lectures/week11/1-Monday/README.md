@@ -23,15 +23,15 @@ After completing this lesson, you will be able to:
 - [React DevTools](https://digitalcrafts.instructure.com/courses/189/pages/reading-react-devtools?module_item_id=23484)
 
 
-<!-- ## 🟡 Lecture Presentations
-- [React 101](https://dc-houston.herokuapp.com/p2/React/React101.html#1) -->
+## 🟡 Lecture Presentations
+- [React 101](https://dc-houston.herokuapp.com/p2/React/React101.html#1)
 
-<!-- ## 🟣Labs 
+## 🟣Labs 
 - [props lab](https://github.com/veros-labs/react-props-lab.git)
 - [prop drills](https://github.com/veros-labs/lab-react-prop-drills)
-- [calculator](https://github.com/veros-labs/lab-react-calculator) -->
-<!-- ## 🟠Homework
-- [book barn](https://github.com/veros-labs/hw-react-props-book-barn) -->
+- [calculator](https://github.com/veros-labs/lab-react-calculator)
+## 🟠Homework
+- [book barn](https://github.com/veros-labs/hw-react-props-book-barn)
 
 
 ## 🔵Helpful Videos
