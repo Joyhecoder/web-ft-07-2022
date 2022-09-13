@@ -1,12 +1,3 @@
-// import React from 'react';
-
-// const Name = () => {
-
-//     return ()
-// }
-
-// export default Name;
-
 import React from 'react'
 import Days from './Days'
 import Dropdown from './Dropdown'
