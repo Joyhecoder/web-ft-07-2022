@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.min.js"></script>
+    <script>
+
+        //actions = events
+        //store = liason
+        //reducers =event listeners
+
+        //action = object
+        //function that wraps an action is action creator
+        const addContact = (id, firstName, city) => {
+            return {
+                type: "ADD_CONTACT",
+                data: {
+                    id: id,
+                    firstName: firstName,
+                    city: city
+                }
+            }
+        }
+
+        const removeContact = (id) => {
+            return {
+                type: "REMOVE_CONTACT",
+                id: id
+            }
+        }
+
+        const incrementCount = (count) => {
+            return {
+                type: "INCREMENT_COUNT",
+                count: count
+                
+            }
+        }
+
+        //reducer is a function
+        //purpose is to update or define the global state
+        const reducer = (state, action) => {
+            if(state=== undefined){
+                state ={
+                    contacts:[],
+                    count: 0
+                }
+            }
+            switch(action.type){
+                case "ADD_CONTACT": 
+                    return{
+                        ...state, 
+                        contacts: state.contacts.concat(action.data)
+                    }
+
+                case "REMOVE_CONTACT":
+                    return{
+                        ...state,
+                        contacts: state.contacts.filter(contact=>{
+                            return contact.id != action.id
+                        })
+                    }
+                
+                case "INCREMENT_COUNT":
+                    return{
+                        ...state,
+                        count: state.count + action.count
+
+                    }
+                
+                default: 
+                return state
+
+            }
+        }
+
+
+        const store = Redux.createStore(reducer) //need a reducer {}
+
+        const showState = () => {
+            console.log(store.getState())
+        }
+
+        store.subscribe(showState)
+
+        store.dispatch(addContact(1, 'Kipp', 'Houston'))
+        store.dispatch(addContact(2, 'Tommy', 'Brick'))
+        store.dispatch(addContact(3, 'Joy', 'Katy'))
+
+        store.dispatch(incrementCount(1))
+        store.dispatch(incrementCount(10))
+
+        store.dispatch(removeContact(2))
+
+    </script>
+</body>
+</html>
