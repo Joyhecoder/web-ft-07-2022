@@ -17,3 +17,13 @@ Sample Output
 12 // calculated as: 5 + 2 + 2 * (7 - 1) + 3 + 2 * (6 + 3 * (-13 + 8) + 4)
 
  */
+
+const productSum = (arr, depth=1) => {
+    return arr.reduce((acc, val)=>{
+        if(Array.isArray(val)){
+            return acc + (depth + 1) * (productSum(val,depth+2))
+        }else{
+            return acc + val
+        }
+    }, 0)
+}
