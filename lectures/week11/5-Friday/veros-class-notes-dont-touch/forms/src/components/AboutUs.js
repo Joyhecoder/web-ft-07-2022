@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-
 //  localhost:3000/about/sdfs
 
 const AboutUs = () => {

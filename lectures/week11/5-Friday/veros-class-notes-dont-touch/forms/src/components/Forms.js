@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {useParams} from 'react-router'
 
 const Forms = () => {
 
@@ -6,6 +7,10 @@ const Forms = () => {
     const [textValue, setTextValue] = useState("goodbye")
     const [isValid, setIsValid] = useState(false)
     const [selectValue, setSelectValue] = useState("Seattle")
+
+
+    /// details/lskjdf;alk
+    const {drumID} = useParams()
 
 
     const handleSubmit = (e) => {
