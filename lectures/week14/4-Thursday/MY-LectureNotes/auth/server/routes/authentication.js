@@ -75,6 +75,7 @@ router.post('/login', requireLogin, (req, res)=>{
     res.json({token: token(req.user)})
 })
 
+//check if the token is still valid
 router.get('/protected', requireJwt, (req, res)=>{
     res.json({isValid: true})
 })
