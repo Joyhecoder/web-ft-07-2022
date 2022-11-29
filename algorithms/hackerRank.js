@@ -90,5 +90,20 @@ let exampleObj ={
     "a": 1
 
 }
-console.log(exampleObj['a']= exampleObj['b'] || 0);
+// console.log(exampleObj['a']= exampleObj['b'] || 0);
 // console.log(exampleObj['a']= exampleObj['a']);
+
+
+
+function timeInWords(h, m) {
+    // Write your code here
+   const nums =['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','quarter','sixteen','seventeen','eighteen','nineteen', 'twenty', 'twenty one', 'twenty two', 'twenty three', 'twenty four', 'twenty five','twenty six', 'twenty seven', 'twenty eight', 'twenty nine', 'half'];
+   let answer = ''
+   if(m==0){
+    //    answer + nums[h]
+    //    console.log(answer)
+       console.log(nums[h] +" " + "o' clock");
+       console.log(nums[h].concat(" oo'clock"));
+   }
+}
+timeInWords(5,0)
