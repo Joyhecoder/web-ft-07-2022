@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div><div data-field="request">foo</div></div>
+
+
+    <div class="makeInvisible">this text should be invisible.</div>
+    <!-- <div id="makeInvisible">this text should be invisible.</div> -->
+    <div class="makeBold">this text should be bold</div>
+
+    <script>
+        // const result = document.getElementsByTagName("div")[1].innerText
+        // console.log(result);
+       
+            const user = document.querySelector("[data-field='request']").innerText
+            console.log("user", user);
+
+            const element = document.getElementsByClassName("makeBold")[0].style.fontWeight = "bold"
+            console.log(element);
+            
+        
+        const result = document.getElementsByClassName('makeInvisible')[0].style.visibility = "hidden"
+        console.log(result);
+        document.getElementsByClassName("makeInvisible")[0].sytle.display = "none"
+    </script>
+</body>
+
+</html>

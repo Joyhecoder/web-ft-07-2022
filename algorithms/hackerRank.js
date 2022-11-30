@@ -95,15 +95,42 @@ let exampleObj ={
 
 
 
-function timeInWords(h, m) {
-    // Write your code here
-   const nums =['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','quarter','sixteen','seventeen','eighteen','nineteen', 'twenty', 'twenty one', 'twenty two', 'twenty three', 'twenty four', 'twenty five','twenty six', 'twenty seven', 'twenty eight', 'twenty nine', 'half'];
-   let answer = ''
-   if(m==0){
-    //    answer + nums[h]
-    //    console.log(answer)
-       console.log(nums[h] +" " + "o' clock");
-       console.log(nums[h].concat(" oo'clock"));
-   }
-}
-timeInWords(5,0)
+// function timeInWords(h, m) {
+//     // Write your code here
+//    const nums =['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','quarter','sixteen','seventeen','eighteen','nineteen', 'twenty', 'twenty one', 'twenty two', 'twenty three', 'twenty four', 'twenty five','twenty six', 'twenty seven', 'twenty eight', 'twenty nine', 'half'];
+//    let answer = ''
+//    if(m==0){
+//     //    answer + nums[h]
+//     //    console.log(answer)
+//        console.log(nums[h] +" " + "o' clock");
+//        console.log(nums[h].concat(" oo'clock"));
+//    }
+// }
+// timeInWords(5,0)
+
+// var data = {foo : 8, bar : 32, baz : 7}; 
+// console.log(data.baz);
+
+// var data = {1 : 'Joe', 2 : 'Bob', 3 : 'Jim'};
+// for(let i in data){
+//     console.log(data[i]);
+// }
+
+var data = [89, 5, 3, 54, 23];
+// for(let num of data){
+//     console.log(num)
+// }
+data.forEach(num =>{ console.log(num)})
+
+var foo = [1, 3, 8]; 
+var bar = [44, 99]; 
+// foo.concat(bar)
+// console.log(foo);
+
+// const newArray = [...foo, ...bar]
+// console.log(newArray)
+
+// var data = [3, 8, 23, 55, 10];
+// data.push(9)
+// console.log(data);
+
