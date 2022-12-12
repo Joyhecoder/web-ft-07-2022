@@ -134,3 +134,42 @@ var bar = [44, 99];
 // data.push(9)
 // console.log(data);
 
+function pickingNumbers(a) {
+    // Write your code here
+    //4 6 5 3 3 1
+    //1, 3, 3, 4, 5, 6 
+    const sortedA = a.sort((a,b) => a-b)
+    console.log(sortedA)
+    let count = 1
+    let countArr = []
+    let i = 0
+
+    if(sortedA[0] === sortedA[sortedA.length-1]){
+        return sortedA.length
+    }
+    
+    for(i; i< sortedA.length; i++){
+        for(let j = i+1; j < sortedA.length; j++){
+            if(Math.abs(sortedA[i]-sortedA[j] )<=1){
+                console.log('abs', Math.abs(sortedA[i]-sortedA[j]))
+                count ++
+                console.log('if','i',i, count)
+            }else{
+                countArr.push(count)
+                count = 1
+                // console.log('else', count)
+            }
+            
+        }
+       
+    }
+    if(countArr == null){
+        console.log(count)
+    }
+    // console.log(countArr)
+    let answer = Math.max(...countArr)
+    // console.log(answer)
+    return answer
+}
+
+pickingNumbers([1,1,1,1,1,1,1,1,1,1])
