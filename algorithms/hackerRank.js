@@ -116,14 +116,14 @@ let exampleObj ={
 //     console.log(data[i]);
 // }
 
-var data = [89, 5, 3, 54, 23];
+// var data = [89, 5, 3, 54, 23];
 // for(let num of data){
 //     console.log(num)
 // }
-data.forEach(num =>{ console.log(num)})
+// data.forEach(num =>{ console.log(num)})
 
-var foo = [1, 3, 8]; 
-var bar = [44, 99]; 
+// var foo = [1, 3, 8]; 
+// var bar = [44, 99]; 
 // foo.concat(bar)
 // console.log(foo);
 
@@ -134,42 +134,115 @@ var bar = [44, 99];
 // data.push(9)
 // console.log(data);
 
-function pickingNumbers(a) {
-    // Write your code here
-    //4 6 5 3 3 1
-    //1, 3, 3, 4, 5, 6 
-    const sortedA = a.sort((a,b) => a-b)
-    console.log(sortedA)
-    let count = 1
-    let countArr = []
-    let i = 0
+// function pickingNumbers(a) {
+//     // Write your code here
+//     //4 6 5 3 3 1
+//     //1, 3, 3, 4, 5, 6 
+//     const sortedA = a.sort((a,b) => a-b)
+//     console.log(sortedA)
+//     let count = 1
+//     let countArr = []
+//     let i = 0
 
-    if(sortedA[0] === sortedA[sortedA.length-1]){
-        return sortedA.length
-    }
+//     if(sortedA[0] === sortedA[sortedA.length-1]){
+//         return sortedA.length
+//     }
     
-    for(i; i< sortedA.length; i++){
-        for(let j = i+1; j < sortedA.length; j++){
-            if(Math.abs(sortedA[i]-sortedA[j] )<=1){
-                console.log('abs', Math.abs(sortedA[i]-sortedA[j]))
-                count ++
-                console.log('if','i',i, count)
-            }else{
-                countArr.push(count)
-                count = 1
-                // console.log('else', count)
+//     for(i; i< sortedA.length; i++){
+//         for(let j = i+1; j < sortedA.length; j++){
+//             if(Math.abs(sortedA[i]-sortedA[j] )<=1){
+//                 console.log('abs', Math.abs(sortedA[i]-sortedA[j]))
+//                 count ++
+//                 console.log('if','i',i, count)
+//             }else{
+//                 countArr.push(count)
+//                 count = 1
+//                 // console.log('else', count)
+//             }
+            
+//         }
+       
+//     }
+//     if(countArr == null){
+//         console.log(count)
+//     }
+//     // console.log(countArr)
+//     let answer = Math.max(...countArr)
+//     // console.log(answer)
+//     return answer
+// }
+
+// pickingNumbers([1,1,1,1,1,1,1,1,1,1])
+
+
+function highestValuePalindrome(s, n, k) {
+    // Write your code here  
+    let sArr = Array.from(String(s), Number)
+    //when the n is even
+    if(n%2==0){
+        console.log("it is even");
+        let midIndex = n / 2
+        let i = 1
+        let count = 0
+      
+        // console.log(sArr);
+        for(midIndex; midIndex < n; midIndex++){
+            console.log(188, sArr[midIndex]);
+            if(sArr[midIndex] != sArr[midIndex - i]){
+                count++
             }
+            i += 2
+        }
+        //if k is not met
+        if(count > k){
+            return -1
+        }
+        //check if k is met 
+        
+        else{
+            console.log('else condition');
+            
+         
+
+            //need to reassign the value of midIndex and i in order to run the loop
+            midIndex = n / 2
+            console.log(209, midIndex);
+            i = 1
+            let j = 0
+            let m = n-1
+            //s=092282 k=3 n=6
+            for(j; j < midIndex; j++){
+                console.log('loop');
+                console.log('k', k);
+                if(sArr[j] != sArr[m]){
+                    console.log("not the same");
+                    if(k>1 && sArr[j] != 9 && sArr[m] != 9){
+                        sArr[j]= 9
+                        sArr[m]= 9
+                        k -= 2
+                    }else{
+                    if(sArr[j]> sArr[m]){
+                        sArr[m] = sArr[j]
+                        console.log(210, sArr)
+                    }else{
+                        sArr[j] = sArr[m]
+                        console.log(213, sArr);
+                    }
+                    k--
+                }
+              
+                }
+            m--
             
         }
-       
+             
+            
+        }
     }
-    if(countArr == null){
-        console.log(count)
-    }
-    // console.log(countArr)
-    let answer = Math.max(...countArr)
-    // console.log(answer)
+    let answer = sArr.join('')
+    console.log('answer', answer);
     return answer
+
 }
 
-pickingNumbers([1,1,1,1,1,1,1,1,1,1])
+highestValuePalindrome(092282, 6, 3)
