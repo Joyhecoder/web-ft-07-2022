@@ -175,74 +175,175 @@ let exampleObj ={
 // pickingNumbers([1,1,1,1,1,1,1,1,1,1])
 
 
-function highestValuePalindrome(s, n, k) {
-    // Write your code here  
-    let sArr = Array.from(String(s), Number)
-    //when the n is even
-    if(n%2==0){
-        console.log("it is even");
-        let midIndex = n / 2
-        let i = 1
-        let count = 0
+// function highestValuePalindrome(s, n, k) {
+//     // Write your code here  
+//     let sArr = Array.from(String(s), Number)
+//     console.log(s);
+//     console.log(sArr);
+//     //when the n is even
+//     if(n%2==0){
+//         // console.log("it is even");
+//         let midIndex = n / 2
+//         let i = 1
+//         let count = 0
       
-        // console.log(sArr);
-        for(midIndex; midIndex < n; midIndex++){
-            console.log(188, sArr[midIndex]);
-            if(sArr[midIndex] != sArr[midIndex - i]){
-                count++
-            }
-            i += 2
-        }
-        //if k is not met
-        if(count > k){
-            return -1
-        }
-        //check if k is met 
+//         // console.log(sArr);
+//         for(midIndex; midIndex < n; midIndex++){
+//             // console.log("midIndex", midIndex);
+//             // console.log(188, sArr[midIndex-1]);
+//             if(sArr[midIndex-1] != sArr[midIndex -1 - i]){
+//                 count++
+//             }
+//             i += 2
+//         }
+//         //if k is not met
+//         if(count > k){
+//             return -1
+//         }
+//         //check if k is met 
         
-        else{
-            console.log('else condition');
+//         else{
+//             // console.log('else condition');
             
          
 
-            //need to reassign the value of midIndex and i in order to run the loop
-            midIndex = n / 2
-            console.log(209, midIndex);
-            i = 1
-            let j = 0
-            let m = n-1
-            //s=092282 k=3 n=6
-            for(j; j < midIndex; j++){
-                console.log('loop');
-                console.log('k', k);
-                if(sArr[j] != sArr[m]){
-                    console.log("not the same");
-                    if(k>1 && sArr[j] != 9 && sArr[m] != 9){
-                        sArr[j]= 9
-                        sArr[m]= 9
-                        k -= 2
-                    }else{
-                    if(sArr[j]> sArr[m]){
-                        sArr[m] = sArr[j]
-                        console.log(210, sArr)
-                    }else{
-                        sArr[j] = sArr[m]
-                        console.log(213, sArr);
-                    }
-                    k--
-                }
+//             //need to reassign the value of midIndex and i in order to run the loop
+//             midIndex = n / 2   //3
+//             console.log(209, midIndex);
+//             i = 1
+//             let j = 0
+//             let m = n-1
+//             //s=092282 k=3 n=6
+//             for(j; j < midIndex; j++){
+//                 console.log('loop');
+//                 console.log('k', k);
+//                 console.log(sArr);
+//                 if(sArr[j] != sArr[m]){
+//                     console.log("not the same");
+//                     if(k>1 && sArr[j] != 9 && sArr[m] != 9){
+//                         sArr[j]= 9
+//                         sArr[m]= 9
+//                         k -= 2
+//                     }else if(k>1 && sArr[j] == 9){
+//                         sArr[m] = 9
+//                         k -= 1
+//                     }else if(k>1 && sArr[m] ==9){
+//                         sArr[j]=9
+//                         k -= 1
+//                     }
+                    
+//                     else{
+//                     if(sArr[j]> sArr[m]){
+//                         sArr[m] = sArr[j]
+//                         console.log(210, sArr)
+//                     }else{
+//                         sArr[j] = sArr[m]
+//                         console.log(213, sArr);
+//                     }
+//                     k--
+//                 }
               
-                }
-            m--
+//                 }
+//             m--
             
-        }
+//         }
              
+            
+//         }
+//     }
+
+//     //when n is odd
+//     else{
+
+//     }
+//     let answer = sArr.join('')
+//     console.log('answer', answer);
+//     return answer
+
+// }
+
+// highestValuePalindrome('092282', 6, 3)
+
+
+// function timeConversion(s) {
+//     // Write your code here
+//     const letter = s.slice(8,9)
+//     // console.log(letter)
+//     if(letter == "A"){
+//         const hour = s.slice(0,2)
+//         if(hour == '12'){
+//             const sArr = s.split("")
+
+//             sArr.splice(0,2,'0','0')
+            
+//             sArr.splice(8,2)
+//             const result = sArr.join("")
+//             console.log(result);
+//             return result
+//         }else{
+//             const sArr = s.split("")
+            
+//             sArr.splice(8,2)
+//             const result = sArr.join("")
+//             return result
+//         }
+//     }else{
+//         const hour = s.slice(0,2)
+//         // console.log(hour)
+//         if(hour=='12'){
+            
+//             const sArr = s.split("")
+            
+//             sArr.splice(8,2)
+//             const result = sArr.join("")
+//             return result
+            
+//         }else{
+//             let hourInt = parseInt(hour)
+//             hourInt += 12
+//             // console.log(hourInt)
+//             const sArr = s.split("")
+//             // console.log(sArr)
+//             sArr.splice(0,2,hourInt)
+//             sArr.splice(7,2)
+            
+//             const result = sArr.join("")
+//             return result
+//         }
+//     }
+
+// }
+
+// timeConversion('12:40:22AM')
+
+
+function sockMerchant(n, ar) {
+    // Write your code here
+    let colorDic = {}
+    let pair = 0
+    for(let i=0; i < n; i++){
+        if(!colorDic[ar[i]]){
+            colorDic[ar[i]]= 1
+        }else{
+            colorDic[ar[i]] += 1
+        }
+    }
+    console.log(colorDic)
+    for(let el in colorDic){
+        if(colorDic[el] <2){
+            pair
+        }else{
+            if(colorDic[el]%2 == 0){
+                pair += (colorDic[el]/2)
+            }else{
+                pair += ((colorDic[el]-1)/2)
+            }
             
         }
     }
-    let answer = sArr.join('')
-    console.log('answer', answer);
-    return answer
+    console.log(pair)
+    // return pair
 
 }
 
-highestValuePalindrome(092282, 6, 3)
+sockMerchant(20, [4,5,5,5,6,6,4,1,4,4,3,6,6,3,6,1,4,5,5,5])
